@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    // "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "moduleResolution": "Node",
+    "declaration": true,
+  }
+}

@@ -1,0 +1,48 @@
+//  Used for package.json： script: "dev": "nodemon ./src/index.ts"
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDirs": [
+      "src"
+    ],
+    "outDir": "dist",
+    "lib": [
+      "es2020"
+    ],
+    "target": "es2020",
+    "module": "esnext",
+    "moduleResolution": "node16",
+    "esModuleInterop": true,
+    "types": [
+      "node"
+    ]
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+  }
+}
+// {
+//   "include": ["src/**/*", "package.json"],
+//   "compilerOptions": {
+//       "composite": true,
+//       "declaration": true,
+//       "declarationMap": true,
+//       "esModuleInterop": true,
+//       "forceConsistentCasingInFileNames": true,
+//       "importHelpers": true,
+//       "module": "ESNext",
+//       "moduleResolution": "node",
+//       "newLine": "LF",
+//       "noFallthroughCasesInSwitch": true,
+//       "noImplicitReturns": true,
+//       "noUncheckedIndexedAccess": true,
+//       "noUnusedLocals": false,
+//       "noUnusedParameters": false,
+//       "preserveConstEnums": true,
+//       "removeComments": true,
+//       "resolveJsonModule": true,
+//       "strict": true,
+//       "target": "ES2018"
+//   }
+// }
