@@ -39,16 +39,56 @@ exports.__esModule = true;
 exports.getSuperHeroById = exports.getSuperHeroByName = void 0;
 var axios_1 = require("axios");
 var getSuperHeroByName = function (token, name) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        return [2, axios_1["default"]
-                .get("https://www.superheroapi.com/api.php/".concat(token, "/search/").concat(name))];
+    var superHeros, _i, _a, hero, akababHero, error_1;
+    var _b;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4, axios_1["default"]
+                    .get("https://www.superheroapi.com/api.php/".concat(token, "/search/").concat(name))];
+            case 1:
+                superHeros = _c.sent();
+                if (!((_b = superHeros.data) === null || _b === void 0 ? void 0 : _b.results)) return [3, 7];
+                _i = 0, _a = superHeros.data.results;
+                _c.label = 2;
+            case 2:
+                if (!(_i < _a.length)) return [3, 7];
+                hero = _a[_i];
+                _c.label = 3;
+            case 3:
+                _c.trys.push([3, 5, , 6]);
+                return [4, axios_1["default"]
+                        .get("https://akabab.github.io/superhero-api/api/id/".concat(hero.id, ".json"))];
+            case 4:
+                akababHero = _c.sent();
+                hero.image.url = akababHero.data.images.md;
+                return [3, 6];
+            case 5:
+                error_1 = _c.sent();
+                console.log("No Akabab image found for hero ".concat(hero.id));
+                return [3, 6];
+            case 6:
+                _i++;
+                return [3, 2];
+            case 7: return [2, superHeros];
+        }
     });
 }); };
 exports.getSuperHeroByName = getSuperHeroByName;
 var getSuperHeroById = function (token, id) { return __awaiter(void 0, void 0, void 0, function () {
+    var superHero, akababHero;
     return __generator(this, function (_a) {
-        return [2, axios_1["default"]
-                .get("https://www.superheroapi.com/api.php/".concat(token, "/").concat(id))];
+        switch (_a.label) {
+            case 0: return [4, axios_1["default"]
+                    .get("https://www.superheroapi.com/api.php/".concat(token, "/").concat(id))];
+            case 1:
+                superHero = _a.sent();
+                return [4, axios_1["default"]
+                        .get("https://akabab.github.io/superhero-api/api/id/".concat(id, ".json"))];
+            case 2:
+                akababHero = _a.sent();
+                superHero.data.image.url = akababHero.data.images.md;
+                return [2, superHero];
+        }
     });
 }); };
 exports.getSuperHeroById = getSuperHeroById;
